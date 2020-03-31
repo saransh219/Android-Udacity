@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class HelloFragment:Fragment()
+class FragmentA:Fragment()
 {
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -20,7 +20,7 @@ class HelloFragment:Fragment()
     }
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View?
     {
-        val view = inflater.inflate(R.layout.fragment_hello,container,false)
+        val view = inflater.inflate(R.layout.fragment_a,container,false)
         //here we can write all the custom codes
         Log.i("TAG","onCreateView")
         return  view
