@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+    android:background="#0FF"
+    android:padding="10dp"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,5 +13,22 @@
         android:text="Fragment A!"
         android:textColor="@android:color/black"
         android:layout_margin="10dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add two numbers"
+        android:id="@+id/btnAdd"/>
+    <TextView
+        android:id="@+id/txvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        />
+
 
 </LinearLayout>

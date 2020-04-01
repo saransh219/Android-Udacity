@@ -7,63 +7,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_a.*
+import kotlinx.android.synthetic.main.fragment_a.view.*
 
 class FragmentA:Fragment()
 {
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.i("TAG","onAttach")
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.i("TAG","onCreate")
-    }
+
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View?
     {
         val view = inflater.inflate(R.layout.fragment_a,container,false)
         //here we can write all the custom codes
+
+        val bundle:Bundle = arguments!!
+        val firstNum = bundle.getInt("first_number",0)
+        val secondNum = bundle.getInt("second_number",0)
+        val result = firstNum+secondNum
+
+        view.btnAdd.setOnClickListener {
+              //code to add numbers will come here
+            txvResult.text = "$result"
+        }
         Log.i("TAG","onCreateView")
         return  view
     }
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        Log.i("TAG","onActivityCreated")
-    }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i("TAG","onStart")
-    }
 
-    override fun onResume() {
-        super.onResume()
-        Log.i("TAG","onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.i("TAG","onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i("TAG","onStop")
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.i("TAG","onDestroyView")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("TAG","onDestroy")
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.i("TAG","onDetach")
-    }
 
 }
