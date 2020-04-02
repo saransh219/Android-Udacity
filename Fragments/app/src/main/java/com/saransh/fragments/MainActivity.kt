@@ -9,33 +9,27 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MyListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val fragmentManager = supportFragmentManager
-
+        addFragmentA()
     }
 
-    fun sendDataToFragment(view: View)
-    {
-        val firstNumber = etFirstNumber.text.toString().toInt()
-        val secondNumber = etSecondNumber.text.toString().toInt()
-        val result = firstNumber + secondNumber
-        Toast.makeText(this,"$result",Toast.LENGTH_SHORT).show()
-
-        val bundle = Bundle()
-        bundle.putInt("first_number",firstNumber)
-        bundle.putInt("second_number",secondNumber)
-
+    private fun addFragmentA() {
         val fragmentA = FragmentA()
-        fragmentA.arguments = bundle
+        val fTransaction = supportFragmentManager.beginTransaction()
+        fTransaction.add(R.id.containerFragmentA,fragmentA,"fragA")
+        fTransaction.commit()
+    }
 
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.containerFragmentA,fragmentA,"fragA")
-        fragmentTransaction.commit()
+    override fun addTwoNumbers(num1: Int, num2: Int)
+    {
+        val result = num1 + num2
+        txvResult.setText("Result = $result ")
     }
 
 

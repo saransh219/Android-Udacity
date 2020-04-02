@@ -13,22 +13,33 @@
         android:text="Fragment A!"
         android:textColor="@android:color/black"
         android:layout_margin="10dp"/>
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:text="0"
+            android:id="@+id/etFirstNumber"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:text="0"
+            android:id="@+id/etSecondNumber"/>
+    </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add two numbers"
-        android:id="@+id/btnAdd"/>
-    <TextView
-        android:id="@+id/txvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Result"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/black"
-        />
+        android:text="Send data to parent activity"
+        android:id="@+id/btnSend"/>
+
 
 
 </LinearLayout>

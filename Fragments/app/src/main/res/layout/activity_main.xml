@@ -9,33 +9,19 @@
     android:orientation="vertical"
     android:background="#FF0"
     tools:context=".MainActivity">
-    <LinearLayout
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/txvResult"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:text="0"
-            android:id="@+id/etFirstNumber"/>
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:text="0"
-            android:id="@+id/etSecondNumber"/>
-    </LinearLayout>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="sendDataToFragment"
-        android:text="Send data to fragment-a"
-        android:layout_margin="10dp"/>
+        android:text="Result"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        />
 
     <FrameLayout
         android:layout_width="match_parent"
