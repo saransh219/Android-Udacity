@@ -8,15 +8,18 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_b.*
 
 class MainActivity : AppCompatActivity(),MyListener {
 
-
+    var firstNum:Int = 0
+    var secondNum:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val fragmentManager = supportFragmentManager
         addFragmentA()
+        addFragmentB()
     }
 
     private fun addFragmentA() {
@@ -25,11 +28,25 @@ class MainActivity : AppCompatActivity(),MyListener {
         fTransaction.add(R.id.containerFragmentA,fragmentA,"fragA")
         fTransaction.commit()
     }
+    private fun addFragmentB() {
+        val fragmentB = FragmentB()
+        val fTransaction = supportFragmentManager.beginTransaction()
+        fTransaction.add(R.id.containerFragmentB,fragmentB,"fragB")
+        fTransaction.commit()
+    }
 
     override fun addTwoNumbers(num1: Int, num2: Int)
     {
-        val result = num1 + num2
-        txvResult.setText("Result = $result ")
+        firstNum = num1
+        secondNum = num2
+        Toast.makeText(this,"Data Received",Toast.LENGTH_SHORT).show()
+    }
+
+    fun sendDataToFragmentB(view: View)
+    {
+        val fragmentB:FragmentB = supportFragmentManager.findFragmentByTag("fragB") as FragmentB
+        fragmentB.addTwoNumbersInFragmentB(firstNum,secondNum)
+
     }
 
 

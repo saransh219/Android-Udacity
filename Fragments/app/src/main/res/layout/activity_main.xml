@@ -10,24 +10,26 @@
     android:background="#FF0"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Result"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/black"
-        />
-
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/containerFragmentA"
         android:layout_margin="10dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="SEND DATA TO FRAGMENT B"
+        android:onClick="sendDataToFragmentB" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/containerFragmentB"
+        android:layout_margin="10dp"/>
+
 
 
 </LinearLayout>
