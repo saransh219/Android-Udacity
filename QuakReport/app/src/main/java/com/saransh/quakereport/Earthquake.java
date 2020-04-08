@@ -3,16 +3,21 @@ package com.saransh.quakereport;
 class Earthquake
 {
 
-    private String mMagnitude,mLocation,mDate;
+    private String mLocation;
+    private long mTimeInMilliseconds ;
+    private  double mMagnitude;
+    private String mUrl;
 
-    Earthquake(String mag,String name,String date)
+    Earthquake(double mag, String name, long timeInMilliseconds, String url)
     {
         mMagnitude = mag;
         mLocation = name;
-        mDate = date;
+        mTimeInMilliseconds  = timeInMilliseconds;
+        mUrl = url;
+
     }
 
-    String getMagnitude()
+    double getMagnitude()
     {
         return mMagnitude;
     }
@@ -20,10 +25,11 @@ class Earthquake
     {
         return mLocation;
     }
-
-    String getDate()
+    long getTimeInMilliseconds()
 {
-    return mDate;
+    return mTimeInMilliseconds ;
 }
+    String getUrl(){ return  mUrl;
+    }
 
 }
