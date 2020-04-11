@@ -1,5 +1,6 @@
 package com.example.huelight;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
@@ -257,6 +258,9 @@ public class LightResults extends AppCompatActivity {
         Log.e("Tag", String.valueOf(lightStatus) + lightName);
         light_tv.setText(lightName);
         switch_button.setChecked(lightStatus);
+
+
+
 
     }
 
