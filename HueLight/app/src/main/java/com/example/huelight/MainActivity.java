@@ -2,9 +2,11 @@ package com.example.huelight;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ import io.github.zeroone3010.yahueapi.discovery.*;
 public class MainActivity extends AppCompatActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
@@ -32,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         List<String> stringArrayList = new ArrayList<>();
         List<HueBridge> bridges= null;
                 try{
-            bridges = bridgesFuture.get();
-//            HueBridge hueBridge = new HueBridge("123","456","789");
-//            bridges.add(0,hueBridge);
-//            Log.e("TAGGGG", String.valueOf(bridges.size()));
+                        bridges = bridgesFuture.get();
+                        HueBridge hueBridge = new HueBridge("123","Name","789");
+                        bridges.add(0,hueBridge);
+                        Log.e("TAGGGG", String.valueOf(bridges.size()));
                     if( !bridges.isEmpty() ) {
                         final String bridgeIp = bridges.get(0).getIp();
                         Log.e("HII","Bridge found at " + bridgeIp);
@@ -48,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                             stringArrayList.add(bridgeIpName);
                             Log.e("Item ADded size", String.valueOf(stringArrayList.size()));
                         }
-
                     }
                     else {
                         listip.setVisibility(View.INVISIBLE);
@@ -67,7 +69,20 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter stringArrayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
                 stringArrayList);
-
         listip.setAdapter(stringArrayAdapter);
+        List<HueBridge> finalBridges = bridges;
+        listip.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this,"Clicked",Toast.LENGTH_SHORT).show();
+
+
+
+                Intent i = new Intent(MainActivity.this,ipActivity.class);
+                i.putExtra("ip",stringArrayList.get(position));
+                i.putExtra("bridgeIP", finalBridges.get(position).getIp());
+                startActivity(i);
+            }
+        });
     }
 }

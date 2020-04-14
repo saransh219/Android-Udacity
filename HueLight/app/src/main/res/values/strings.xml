@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">HueLight</string>
     <string name="no_bridges_available">NO BRIDGES AVAILABLE</string>
-</resources>
-<!--
+    <string name="warning">To generate authorization token kindly press Hue Bridge button and submit within 30 seconds</string>
+</resources><!--
 
 
 
